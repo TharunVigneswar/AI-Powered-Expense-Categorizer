@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Categorizer AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script> <!-- XLSX for Excel -->
+</head>
+<body>
+    <div class="container">
+        <h1>AI-Powered Expense Categorizer</h1>
+
+        <!-- Expense Table -->
+        <table id="expense-table">
+            <thead>
+                <tr>
+                    <th>Amount ($)</th>
+                    <th>Description</th>
+                    <th>Category (AI Predicted)</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="expense-list"></tbody>
+            <tfoot>
+                <tr>
+                    <td><input type="number" id="amount" placeholder="Amount"></td>
+                    <td><input type="text" id="description" placeholder="Description"></td>
+                    <td><span id="ai-category">Auto</span></td>
+                    <td><button onclick="addExpense()">➕ Add</button></td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <!-- Buttons -->
+        <div class="buttons">
+            <input type="file" id="csvFile" accept=".csv, .xls, .xlsx">
+            <button onclick="loadCSV()">📂 Load Excel/CSV</button>
+            <button onclick="exportToExcel()">📤 Export to Excel</button>
+            <button onclick="clearTable()">🗑️ Clear Table</button>
+        </div>
+
+        <!-- Pie Chart -->
+        <div class="pie">
+            <canvas id="expenseChart"></canvas>
+        </div>
+    </div>
+
+    <script src="aiModel.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
